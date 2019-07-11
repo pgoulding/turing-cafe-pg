@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import './form.css'
+import PropTypes from 'prop-types'
+
 export class Form extends Component {
   constructor() {
     super()
@@ -7,7 +9,7 @@ export class Form extends Component {
       name:'',
       date:'',
       time:'',
-      numberOfGuests:''
+      number:''
     }
   }
 
@@ -24,7 +26,7 @@ export class Form extends Component {
     this.props.addReservation(newReservation)
   }
 
-  
+
 
   render() {
     return (
@@ -53,8 +55,8 @@ export class Form extends Component {
         <input
           type='text'
           placeholder='Number of Guests'
-          name='guests'
-          value={this.state.guests}
+          name='number'
+          value={this.state.number}
           onChange={e => this.handleChange(e)}
         />
         <button onClick={e => this.addReservation(e)}>Make Reservation</button>
@@ -63,5 +65,11 @@ export class Form extends Component {
   }
 }
 
+Form.propTypes = {
+  name: PropTypes.string,
+  date: PropTypes.string,
+  time: PropTypes.string,
+  number: PropTypes.number
+}
 
 export default Form

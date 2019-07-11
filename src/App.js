@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import fetchReservations from './apiFetch'
+import {fetchReservations, sendReservation} from './apiFetch'
 import ReservationContainer from './ReservationContainer'
 import Form from './Form'
 class App extends Component {
@@ -19,7 +19,10 @@ class App extends Component {
 
   addReservation = (newRes) => {
     this.setState({reservations: [...this.state.reservations, newRes]})
+    sendReservation(newRes)
   }
+
+
 
   render() {
     return (
