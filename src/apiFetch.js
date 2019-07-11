@@ -25,4 +25,20 @@ const sendReservation = async (reservation) => {
   }
 }
 
+const deleteDeservations = async (id) => {
+  try {
+    const response = await fetch('http://localhost:3001/api/v1/reservations:id', {
+      method: 'DELETE',
+      body: JSON.stringify({ ...id }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    const result = await response.json()
+    return result
+  } catch (error) {
+    Error('failed to post')
+  }
+} 
+
 export {fetchReservations, sendReservation}
