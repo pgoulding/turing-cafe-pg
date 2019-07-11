@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import fetchReservations from './apiFetch'
 import ReservationContainer from './ReservationContainer'
-
+import Form from './Form'
 class App extends Component {
   constructor() {
     super()
@@ -17,14 +17,15 @@ class App extends Component {
       .catch(error => console.error(error))
   }
 
+  addReservation = (newRes) => {
+    this.setState({reservations: [...this.state.reservations, newRes]})
+  }
 
   render() {
     return (
       <main className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
-        <div className='resy-form'>
-
-        </div>
+        <Form addReservation={this.addReservation}/>
         {this.state.reservations && <ReservationContainer data={this.state.reservations} /> }
       </main>
     )
