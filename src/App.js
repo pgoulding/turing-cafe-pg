@@ -22,7 +22,10 @@ class App extends Component {
     sendReservation(newRes)
   }
 
-
+  removeReservation = (id) => {
+    const filteredReservations = this.state.reservations.filter(res => id === !res.id)
+    this.setState({reservations:[...filteredReservations]})
+  }
 
   render() {
     return (

@@ -26,8 +26,6 @@ export class Form extends Component {
     this.props.addReservation(newReservation)
   }
 
-
-
   render() {
     return (
       <form className='form'>
